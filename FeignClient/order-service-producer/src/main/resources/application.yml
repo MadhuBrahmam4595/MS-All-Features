@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: order-service-producer
+  datasource:
+    url: jdbc:h2:mem:orderdb
+    driverClassName: org.h2.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+spring-doc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+server:
+  port: 9090
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8762/eureka

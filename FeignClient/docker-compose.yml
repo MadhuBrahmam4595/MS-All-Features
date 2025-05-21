@@ -1,0 +1,33 @@
+services:
+  eureka-server:
+    build:
+      context: ./eureka-server
+    container_name: eureka-server
+    ports:
+      - "8762:8762"
+    networks:
+      - micro-net
+  product-service:
+    build:
+      context: ./product-service-producer
+    container_name: product-service
+    depends_on:
+      - eureka-server
+    ports:
+      - "9091:9091"
+    networks:
+      - micro-net
+
+  order-service:
+    build:
+      context: ./order-service-producer
+    container_name: order-service
+    depends_on:
+      - eureka-server
+    ports:
+      - "9090:9090"
+    networks:
+      - micro-net
+
+networks:
+  micro-net:

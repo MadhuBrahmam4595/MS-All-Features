@@ -1,0 +1,25 @@
+spring:
+  application:
+   name: OrderServiceConsumer
+  datasource:
+    url: jdbc:h2:mem:orderdb
+    driverClassName: org.h2.Driver
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8081
+
+#Swagger OpenAPI config (Optional)
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
